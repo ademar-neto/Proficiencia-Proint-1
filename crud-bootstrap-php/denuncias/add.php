@@ -20,7 +20,7 @@ include('../login/redirect.php');
 
 Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="../login/sair.php">clique aqui</a> para sair.
 
-<h2>Novo Cliente</h2>
+<h2>Nova Denúncia</h2>
 
 <form action="add.php" method="post">
   <!-- area de campos do form -->
