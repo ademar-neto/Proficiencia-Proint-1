@@ -31,7 +31,7 @@ Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="login/sair.php">cli
 </thead>
 <tbody>
 <?php
-$con=mysqli_connect("localhost","root","","wda_crud");
+$con = mysqli_connect("localhost","root","","wda_crud");
 // Checando conexão.
 if (mysqli_connect_errno()){
     
