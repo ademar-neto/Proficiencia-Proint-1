@@ -12,22 +12,15 @@ include('login/redirect.php');
 ?>
 
 <?php require_once 'config.php'; ?>
-<?php require_once DBAPI; ?>
 
 <?php include(HEADER_TEMPLATE); ?>
-<?php $db = open_database(); ?>
-
-<?php 
-$sql = "SELECT customers.name as 'cliente' , customers.cpf_cnpj as 'cpf/cnpj' ,  denuncias.codigo as 'codigo da denuncia', denuncias.descricao as 'denuncia' FROM customers INNER JOIN denuncias ON denuncias.id_customers = customers.id";
-?>
-
 
 Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="login/sair.php">clique aqui</a> para sair.
 
 <table class="table table-hover">
 <thead>
 	<tr>
-		<th>ID</th>
+                <th>ID</th>
 		<th width="30%">Nome</th>
 		<th>CPF/CNPJ</th>
                 <th>Telefone</th>
@@ -37,21 +30,31 @@ Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="login/sair.php">cli
 	</tr>
 </thead>
 <tbody>
-    <?php if (($dados['denuncias.id_customers']) != null) : ?>
-	<tr>
-		<td><?php echo $dados['denuncias.id_customers']; ?></td>
-		<td><?php echo $dados['customers.name']; ?></td>
-		<td><?php echo $dados['customers.cpf_cnpj']; ?></td>
-		<td><?php echo $dados['customers.phone']; ?></td>
-		<td><?php echo $dados['denuncias.denuncia']; ?></td>
-		<td><?php echo $dados['denuncias.codigo']; ?></td>
-		<td><?php echo $dados['denuncias.descricao']; ?></td>
-	</tr>
-<?php else : ?>
-	<tr>
-		<td colspan="6">Nenhum registro encontrado.</td>
-	</tr>
-<?php endif; ?>
+<?php
+$con=mysqli_connect("localhost","root","","wda_crud");
+// Checando conexão.
+if (mysqli_connect_errno()){
+    
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  
+  
+}
+  
+$sql = "SELECT 'customer.name', 'customer.cpf_cnpj', 'customer.phone', 'denuncia.denuncia', 'denuncia.codigo', 'denuncia.descricao' FROM 'customers' as 'customer' INNER JOIN 'denuncias' as 'denuncia' on 'customer.id' = 'denuncia.id'";  
+$row = mysqli_query($con, $sql);
+while ($uniao = mysqli_fetch_array($row)){
+    echo "<tr>",
+        "<td>", $uniao['id'], "</td>",
+	"<td>", $uniao['name'], "</td>",
+	"<td>", $uniao['cpf_cnpj'], "</td>",
+	"<td>", $uniao['phone'], "</td>",
+	"<td>", $uniao['denuncia'], "</td>",
+	"<td>", $uniao['codigo'], "</td>",
+	"<td>", $uniao['descricao'], "</td>",
+    "</tr>";
+    }
+mysqli_close($con);
+?>
 </tbody>
 </table>
 
