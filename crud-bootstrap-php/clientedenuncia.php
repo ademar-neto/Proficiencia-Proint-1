@@ -40,9 +40,11 @@ if (mysqli_connect_errno()){
   
 }
   
-$sql = "SELECT 'customer.name', 'customer.cpf_cnpj', 'customer.phone', 'denuncia.denuncia', 'denuncia.codigo', 'denuncia.descricao' FROM 'customers' as 'customer' INNER JOIN 'denuncias' as 'denuncia' on 'customer.id' = 'denuncia.id'";  
-$row = mysqli_query($con, $sql);
-while ($uniao = mysqli_fetch_array($row)){
+$sql = "SELECT 'customers.name', 'customers.cpf_cnpj', 'customers.phone', 'denuncias.denuncia', 'denuncias.codigo', 'denuncias.descricao'"
+        . "FROM 'customers'"
+        . "INNER JOIN 'denuncias'"
+        . "on 'customers.id' = 'denuncias.id'";  
+$uniao = mysqli_query($con, $sql);
     echo "<tr>",
         "<td>", $uniao['id'], "</td>",
 	"<td>", $uniao['name'], "</td>",
@@ -51,8 +53,7 @@ while ($uniao = mysqli_fetch_array($row)){
 	"<td>", $uniao['denuncia'], "</td>",
 	"<td>", $uniao['codigo'], "</td>",
 	"<td>", $uniao['descricao'], "</td>",
-    "</tr>";
-    }
+"</tr>";
 mysqli_close($con);
 ?>
 </tbody>
