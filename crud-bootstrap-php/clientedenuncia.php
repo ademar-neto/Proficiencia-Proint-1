@@ -18,8 +18,7 @@ include('login/redirect.php');
 <?php $db = open_database(); ?>
 
 <?php 
-$sql = "SELECT 'customers.name' , 'customers.cpf_cnpj' , 'denuncias.descricao' , 'denuncias.codigo' , 'denuncias.descricao' FROM 'customers' INNER JOIN 'denuncias' ON 'customers.id' = 'denuncias.id_customers'";
-$dados = $sql;
+$sql = "SELECT customers.name as 'cliente' , customers.cpf_cnpj as 'cpf/cnpj' ,  denuncias.codigo as 'codigo da denuncia', denuncias.descricao as 'denuncia' FROM customers INNER JOIN denuncias ON denuncias.id_customers = customers.id";
 ?>
 
 
