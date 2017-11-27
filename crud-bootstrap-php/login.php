@@ -10,33 +10,22 @@ session_start();
 		<title>Login</title>
 	</head>
 	<body>
+            <h1>Acessar Conta</h1>
 		<form action="index.php" method="post">
 			<table>
-				<tr>
-					<td>Usuário</td>
-				</tr>
-				<tr>
-					<td><input type="text" name="usuario" required></td>
-				</tr>
-				<tr>
-					<td>Senha</td>
-				</tr>
-				<tr>
-					<td><input type="password" name="senha" required></td>
-				</tr>
-                                <tr>
-                                    <td>Digite o Código</td>
-                                </tr>
-                                <tr>
-                                    <img src="captcha.php?l=150&a=50&tf=20&ql=5">
-                                </tr>
-                                <tr>
-                                    <td><input type="text" name="palavra"  /></td>
-                                </tr>
-				<tr>
-					<td><a href="cria-usuarios/">Criar usuário</a></td>
-				</tr>
-				
+                        <label>Usuário: </label>
+                        <input type="text" name="usuario" required><br><br>
+                                        
+                        <label>Senha: </label>
+                        <input type="password" name="senha" required><br><br>
+                                         
+                        <img src="captcha.php" alt="código captcha" /><br><br>
+                         
+                        <label>Digite o Código: </label>
+                        
+                        <input type="text" name="captcha" id="captcha" required><br><br>
+                        
+                        <label><a href="cria-usuarios/">Criar usuário</a></label><br><br>	
 				<?php if ( ! empty( $_SESSION['login_erro'] ) ) :?>
 					<tr>
 						<td style="color: red;"><?php echo $_SESSION['login_erro'];?></td>
@@ -50,5 +39,4 @@ session_start();
 		</form>
 	</body>
 </html>
-
 
