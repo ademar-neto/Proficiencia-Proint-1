@@ -32,8 +32,8 @@ if (
 	// Busca os dados da linha encontrada
 	$fetch_usuario = $pdo_checa_user->fetch();
 	
-	// Verifica se a senha do usuário está correta
-	if ( crypt( $dados_usuario['senha'], $fetch_usuario['user_password'] ) === $fetch_usuario['user_password'] ) {
+	// Verifica se a senha do usuário está correta e verificar o captcha
+	if ( ( crypt( $dados_usuario['senha'], $fetch_usuario['user_password'] ) === $fetch_usuario['user_password'] ) /*&& ($_SESSION['captcha'] === $_POST['captcha'])*/) {
 		// O usuário está logado
 		$_SESSION['logado']       = true;
 		$_SESSION['nome_usuario'] = $fetch_usuario['user_name'];
