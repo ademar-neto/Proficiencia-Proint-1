@@ -1,10 +1,8 @@
 <?php
 // Inclui o arquivo de configuração
 include('login/config.php');
-
 // Inclui o arquivo de verificação de login
 include('login/verifica_login.php');
-
 // Se não for permitido acesso nenhum ao arquivo
 // Inclua o trecho abaixo, ele redireciona o usuário para 
 // o formulário de login
@@ -12,8 +10,10 @@ include('login/redirect.php');
 ?>
 
 <?php require_once 'config.php'; ?>
+<?php require_once DBAPI; ?>
 
 <?php include(HEADER_TEMPLATE); ?>
+
 
 Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="login/sair.php">clique aqui</a> para sair.
 
@@ -39,23 +39,34 @@ if (mysqli_connect_errno()){
   
   
 }
-  
-$sql = "SELECT 'customers.name', 'customers.cpf_cnpj', 'customers.phone', 'denuncias.denuncia', 'denuncias.codigo', 'denuncias.descricao'"
-        . "FROM 'customers'"
+
+$sql = "SELECT * FROM 'customers' INNER JOIN 'customers_denuncias' on 'customers.id' = 'customers_denuncias.id_customers'"
         . "INNER JOIN 'denuncias'"
-        . "on 'customers.id' = 'denuncias.id'";  
-$uniao = mysqli_query($con, $sql);
-    echo "<tr>",
-        "<td>", $uniao['id'], "</td>",
-	"<td>", $uniao['name'], "</td>",
-	"<td>", $uniao['cpf_cnpj'], "</td>",
-	"<td>", $uniao['phone'], "</td>",
-	"<td>", $uniao['denuncia'], "</td>",
-	"<td>", $uniao['codigo'], "</td>",
-	"<td>", $uniao['descricao'], "</td>",
-"</tr>";
-mysqli_close($con);
-?>
+        . "ON 'denuncias.id' = 'customers_denuncias.id_denuncias'";
+
+$result = mysqli_query($con, $sql);
+
+$row = msqli_fetch_assoc($result);
+            $id = $row['id_customers'];
+            $nome = $row['name'];
+            $cpf_cnpj = $row['cpf_cnpj'];
+            $Fone = $row['phone'];
+            $denun = $row['denuncia'];
+            $codigo = $row['codigo'];
+            $descricao = $row['descricao'];
+            
+            
+            echo "<tr>";
+            echo "<td>$id</td>";
+            echo "<td>$nome</td>";
+            echo "<td>$cpf_cnpj</td>";
+            echo "<td>$fone</td>";
+            echo "<td>$denun</td>";
+            echo "<td>$codigo</td>";
+            echo "<td>$descricao</td>";
+            echo "</tr>";    
+            
+mysqli_close($con);?>
 </tbody>
 </table>
 
