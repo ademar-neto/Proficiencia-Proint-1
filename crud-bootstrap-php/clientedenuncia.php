@@ -1,11 +1,9 @@
 <?php
-// Inclui o arquivo de configuração
+// Inclui o arquivo de configuração.
 include('login/config.php');
-// Inclui o arquivo de verificação de login
+// Inclui o arquivo de verificação de login.
 include('login/verifica_login.php');
-// Se não for permitido acesso nenhum ao arquivo
-// Inclua o trecho abaixo, ele redireciona o usuário para 
-// o formulário de login
+// Se não for permitido acesso nenhum ao arquivo Inclua o trecho abaixo, ele redireciona o usuário para o formulário de login.
 include('login/redirect.php');
 ?>
 
@@ -31,41 +29,40 @@ Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="login/sair.php">cli
 </thead>
 <tbody>
 <?php
+	
+//Conectando ao banco.	
 $con = mysqli_connect("localhost","root","","wda_crud");
+	
 // Checando conexão.
 if (mysqli_connect_errno()){
     
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  
+  echo "Falha em se conectar ao Banco de Dados: " . mysqli_connect_error();
   
 }
-
+	
+//Selecionando os bancos e unindo.
 $sql = "SELECT * FROM 'customers' INNER JOIN 'customers_denuncias' on 'customers.id' = 'customers_denuncias.id_customers'"
         . "INNER JOIN 'denuncias'"
         . "ON 'denuncias.id' = 'customers_denuncias.id_denuncias'";
-
-$result = mysqli_query($con, $sql);
-
-$row = msqli_fetch_assoc($result);
-            $id = $row['id_customers'];
-            $nome = $row['name'];
-            $cpf_cnpj = $row['cpf_cnpj'];
-            $Fone = $row['phone'];
-            $denun = $row['denuncia'];
-            $codigo = $row['codigo'];
-            $descricao = $row['descricao'];
-            
-            
-            echo "<tr>";
-            echo "<td>$id</td>";
-            echo "<td>$nome</td>";
-            echo "<td>$cpf_cnpj</td>";
-            echo "<td>$fone</td>";
-            echo "<td>$denun</td>";
-            echo "<td>$codigo</td>";
-            echo "<td>$descricao</td>";
-            echo "</tr>";    
-            
+	
+//Resultados.
+if ($result = mysqli_query($con, $sql)){
+    //Fetch do array de associação.
+    while ($row = msqli_fetch_assoc($result)){
+        echo '<tr>';
+        echo "<td>",$row['id_customers'],"</td>";
+        echo "<td>",$row['name'],"</td>";
+        echo "<td>",$row['cpf_cnpj'],"</td>";
+        echo "<td>",$row['phone'],"</td>";
+        echo "<td>",$row['denuncia'],"</td>";
+        echo "<td>",$row['codigo'],"</td>";
+        echo "<td>",$row['descricao'],"</td>";
+        echo "</tr>";
+    }
+    //liberando resultado.
+    mysqli_free_result($result);
+}
+//Fechando Conexão.
 mysqli_close($con);?>
 </tbody>
 </table>
