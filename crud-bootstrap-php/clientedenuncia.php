@@ -41,7 +41,9 @@ if (mysqli_connect_errno()){
 }
 	
 //Selecionando os bancos e unindo.
-$sql = "SELECT * FROM 'customers' INNER JOIN 'customers_denuncias' on 'customers.id' = 'customers_denuncias.id_customers'"
+$sql = "SELECT * FROM 'customers'"
+        . "INNER JOIN 'customers_denuncias'"
+        . "ON 'customers.id' = 'customers_denuncias.id_customers'"
         . "INNER JOIN 'denuncias'"
         . "ON 'denuncias.id' = 'customers_denuncias.id_denuncias'";
 	
