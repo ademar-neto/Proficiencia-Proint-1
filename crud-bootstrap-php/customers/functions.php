@@ -16,8 +16,7 @@ function index() {
 function add() {
   if (!empty($_POST['customer'])) {
     
-    $today = 
-      date_create('now', new DateTimeZone('America/Maceio'));
+    $today = date_create('now', new DateTimeZone('America/Maceio'));
     $customer = $_POST['customer'];
     $customer['modified'] = $customer['created'] = $today->format("Y-m-d H:i:s");
     

@@ -14,6 +14,10 @@ include('../login/redirect.php');
 <?php
     require_once('functions.php');
     index();
+    
+//    $stmt = $conexao_pdo->prepare("select name,cpf_cnpj,denuncia,descricao from customers");
+//    $stmt->execute();
+//    $result = $stmt->FetchAll(PDO::FETCH_OBJ);
 ?>
 
 <?php include(HEADER_TEMPLATE); ?>
@@ -37,7 +41,7 @@ Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="../login/sair.php">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		<?php echo $_SESSION['message']; ?>
 	</div>
-	<?php clear_messages(); ?>
+	
 <?php endif; ?>
 
 <hr>
@@ -47,7 +51,7 @@ Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="../login/sair.php">
 	<tr>
 		<th>ID</th>
 		<th width="30%">Denúcia</th>
-		<th>Código</th>
+		<th>Usuario</th>
 		<th>Descrição</th>
 		<th>Atualizado em</th>
 		<th>Opções</th>
@@ -59,7 +63,7 @@ Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="../login/sair.php">
 	<tr>
 		<td><?php echo $denuncia['id']; ?></td>
 		<td><?php echo $denuncia['denuncia']; ?></td>
-		<td><?php echo $denuncia['codigo']; ?></td>
+		<td><?php echo $denuncia['usuario_id']; ?></td>
 		<td><?php echo $denuncia['descricao']; ?></td>
 		<td><?php echo $denuncia['modified']; ?></td>
 		<td class="actions text-right">

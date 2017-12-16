@@ -32,8 +32,8 @@ Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="../login/sair.php">
 	<dt>Denúncia:</dt>
 	<dd><?php echo $denuncia['denuncia']; ?></dd>
 
-	<dt>Código:</dt>
-	<dd><?php echo $denuncia['codigo']; ?></dd>
+	<dt>Usuario:</dt>
+	<dd><?php echo $denuncia['usuario_id']; ?></dd>
 
 	<dt>Descrição:</dt>
 	<dd><?php echo $denuncia['descricao']; ?></dd>

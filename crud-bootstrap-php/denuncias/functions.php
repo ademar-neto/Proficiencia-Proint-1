@@ -16,8 +16,7 @@ function index() {
 function add() {
   if (!empty($_POST['denuncia'])) {
     
-    $today = 
-      date_create('now', new DateTimeZone('America/Maceio'));
+    $today = date_create('now', new DateTimeZone('America/Maceio'));
     $denuncia = $_POST['denuncia'];
     $denuncia['modified'] = $denuncia['created'] = $today->format("Y-m-d H:i:s");
     
