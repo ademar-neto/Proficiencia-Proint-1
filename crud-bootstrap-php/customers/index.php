@@ -37,7 +37,10 @@ Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="../login/sair.php">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		<?php echo $_SESSION['message']; ?>
 	</div>
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 19ded73c45dde27437b95b0a4bf33b05fbc1be51
 <?php endif; ?>
 
 <hr>

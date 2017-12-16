@@ -4,7 +4,11 @@
  
 // Criar o texto para o captcha.
  $codigoCaptcha = substr(md5( time()) ,0,9);
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 19ded73c45dde27437b95b0a4bf33b05fbc1be51
 // Criar um novo recurso de imagem a partir de um arquivo.
  $imagemCaptcha = imagecreatefrompng("fundocaptcha.png");
  

@@ -1,6 +1,10 @@
 <?php
 //Verificar Captcha.
+<<<<<<< HEAD
 //if($_SESSION['captcha'] === $_POST['captcha']){
+=======
+if($_SESSION['captcha'] === $_POST['captcha']){
+>>>>>>> 19ded73c45dde27437b95b0a4bf33b05fbc1be51
     // Verifica se estamos conectados ao BD
     if ( ! isset( $conexao_pdo ) || ! is_object( $conexao_pdo ) ) {
         exit('Erro na conexão com o banco de dados.');
@@ -43,5 +47,10 @@
 		$_SESSION['login_erro'] = 'Usuário, senha ou captcha inválidos.';
 	}
     }
+<<<<<<< HEAD
 //}
 ?>
+=======
+}
+?>
+>>>>>>> 19ded73c45dde27437b95b0a4bf33b05fbc1be51
