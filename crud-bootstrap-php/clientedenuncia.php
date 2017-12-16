@@ -10,15 +10,11 @@ include('login/redirect.php');
 <?php require_once 'config.php'; ?>
 <?php require_once DBAPI; ?>
 
-<<<<<<< HEAD
 <?php include(HEADER_TEMPLATE);     
     $stmt = $conexao_pdo->prepare("select denuncias.id,name,cpf_cnpj,phone,denuncia,descricao from customers inner join denuncias on customers.id = usuario_id");
     $stmt->execute();
     $result = $stmt->FetchAll(PDO::FETCH_OBJ);
 ?>
-=======
-<?php include(HEADER_TEMPLATE); ?>
->>>>>>> 19ded73c45dde27437b95b0a4bf33b05fbc1be51
 
 Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="login/sair.php">clique aqui</a> para sair.
 
@@ -34,7 +30,6 @@ Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="login/sair.php">cli
 	</tr>
 </thead>
 <tbody>
-<<<<<<< HEAD
     <?php
     foreach($result as $res){
    ?>
@@ -49,46 +44,6 @@ Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="login/sair.php">cli
    <?php
     }
    ?>
-=======
-<?php
-	
-//Conectando ao banco.	
-$con = mysqli_connect("localhost","root","","wda_crud");
-	
-// Checando conexão.
-if (mysqli_connect_errno()){
-    
-  echo "Falha em se conectar ao Banco de Dados: " . mysqli_connect_error();
-  
-}
-	
-//Selecionando os bancos e unindo.
-$sql = "SELECT * FROM 'customers'"
-        . "INNER JOIN 'customers_denuncias'"
-        . "ON 'customers.id' = 'customers_denuncias.id_customers'"
-        . "INNER JOIN 'denuncias'"
-        . "ON 'denuncias.id' = 'customers_denuncias.id_denuncias'";
-	
-//Resultados.
-if ($result = mysqli_query($con, $sql)){
-    //Fetch do array de associação.
-    while ($row = msqli_fetch_assoc($result)){
-        echo '<tr>';
-        echo "<td>",$row['id_customers'],"</td>";
-        echo "<td>",$row['name'],"</td>";
-        echo "<td>",$row['cpf_cnpj'],"</td>";
-        echo "<td>",$row['phone'],"</td>";
-        echo "<td>",$row['denuncia'],"</td>";
-        echo "<td>",$row['codigo'],"</td>";
-        echo "<td>",$row['descricao'],"</td>";
-        echo "</tr>";
-    }
-    //liberando resultado.
-    mysqli_free_result($result);
-}
-//Fechando Conexão.
-mysqli_close($con);?>
->>>>>>> 19ded73c45dde27437b95b0a4bf33b05fbc1be51
 </tbody>
 </table>
 

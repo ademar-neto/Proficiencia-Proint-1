@@ -4,14 +4,14 @@ require_once(DBAPI);
 $denuncias = null;
 $denuncia = null;
 /**
- *  Listagem de Denúncia.
+ *  Listagem de Clientes
  */
 function index() {
 	global $denuncias;
 	$denuncias = find_all('denuncias');
 }
 /**
- *  Cadastro de Denúncia.
+ *  Cadastro de Clientes
  */
 function add() {
   if (!empty($_POST['denuncia'])) {
@@ -25,7 +25,7 @@ function add() {
   }
 }
 /**
- *	Atualização/Edição de Denúncia.
+ *	Atualização/Edição de Cliente
  */
 function edit() {
   $now = date_create('now', new DateTimeZone('America/Maceio'));
@@ -45,14 +45,14 @@ function edit() {
   }
 }
 /**
- *  Visualização de um Denúncia.
+ *  Visualização de um Cliente
  */
 function view($id = null) {
   global $denuncia;
   $denuncia = find('denuncias', $id);
 }
 /**
- *  Exclusão de uma Denúncia.
+ *  Exclusão de um Cliente
  */
 function delete($id = null) {
   global $denuncia;

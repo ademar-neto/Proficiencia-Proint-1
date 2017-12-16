@@ -10,7 +10,6 @@ session_start();
 		<title>Login</title>
 	</head>
 	<body>
-<<<<<<< HEAD
             <h1>Acesar Conta</h1>
 		<form action="index.php" method="post">
 			<table>
@@ -23,21 +22,6 @@ session_start();
                             <label>Digite o Código</label><br><br>
                         <img src="captcha.php" alt="código captcha"><br><br>
                                         
-=======
-            <h1>Acessar Conta</h1>
-		<form action="index.php" method="post">
-			<table>
-                        <label>Usuário: </label>
-                        <input type="text" name="usuario" required><br><br>
-                                        
-                        <label>Senha: </label>
-                        <input type="password" name="senha" required><br><br>
-                                         
-                        <img src="captcha.php" alt="código captcha" /><br><br>
-                         
-                        <label>Digite o Código: </label>
-                        
->>>>>>> 19ded73c45dde27437b95b0a4bf33b05fbc1be51
                         <input type="text" name="captcha" id="captcha" required><br><br>
                         
                         <label><a href="cria-usuarios/">Criar usuário</a></label><br><br>	
@@ -54,4 +38,5 @@ session_start();
 		</form>
 	</body>
 </html>
+
 
