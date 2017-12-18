@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: 24-Nov-2017 às 13:09
--- Versão do servidor: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- Host: 127.0.0.1
+-- Generation Time: 18-Dez-2017 às 19:20
+-- Versão do servidor: 10.1.25-MariaDB
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -48,29 +48,16 @@ CREATE TABLE `customers` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `customers_denuncias`
---
-
-CREATE TABLE `customers_denuncias` (
-  `id` int(11) NOT NULL,
-  `id_customer` int(11) NOT NULL,
-  `Id_denuncia` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `denuncias`
 --
 
 CREATE TABLE `denuncias` (
   `id` int(11) NOT NULL,
   `denuncia` varchar(255) NOT NULL,
-  `codigo` int(255) NOT NULL,
+  `usuario_id` int(11) UNSIGNED NOT NULL,
   `descricao` varchar(255) NOT NULL,
   `created` date NOT NULL,
-  `modified` date NOT NULL,
-  `id_customers` int(11) NOT NULL
+  `modified` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -97,12 +84,6 @@ ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `customers_denuncias`
---
-ALTER TABLE `customers_denuncias`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `denuncias`
 --
 ALTER TABLE `denuncias`
@@ -122,20 +103,17 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `denuncias`
 --
 ALTER TABLE `denuncias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID do Usuário', AUTO_INCREMENT=2;
-COMMIT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID do Usuário', AUTO_INCREMENT=4;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
