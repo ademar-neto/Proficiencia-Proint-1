@@ -1,6 +1,6 @@
 <?php
 //Verificar Captcha.
-//if($_SESSION['captcha'] === $_POST['captcha']){
+if($_SESSION['captcha'] === $_POST['captcha']){
     // Verifica se estamos conectados ao BD
     if ( ! isset( $conexao_pdo ) || ! is_object( $conexao_pdo ) ) {
         exit('Erro na conexão com o banco de dados.');
@@ -43,5 +43,5 @@
 		$_SESSION['login_erro'] = 'Usuário, senha ou captcha inválidos.';
 	}
     }
-//}
+}
 ?>
