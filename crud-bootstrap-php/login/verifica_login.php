@@ -44,4 +44,7 @@ if($_SESSION['captcha'] === $_POST['captcha']){
 	}
     }
 }
+else {
+	$_SESSION['login_erro'] = 'Usuário, senha ou captcha inválidos.';
+}
 ?>
