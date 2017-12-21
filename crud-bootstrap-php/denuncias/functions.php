@@ -52,7 +52,7 @@ function view($id = null) {
   $denuncia = find('denuncias', $id);
 }
 /**
- *  Exclusão de um Cliente
+ *  Exclusão de uma Denúncia
  */
 function delete($id = null) {
   global $denuncia;
