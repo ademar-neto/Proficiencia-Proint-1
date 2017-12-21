@@ -5,7 +5,7 @@
 // Criar o texto para o captcha.
  $codigoCaptcha = substr(md5( time()) ,0,9);
 
-// Guardar o texto numa variável session
+// Guardar o texto numa variável session.
  $_SESSION['captcha'] = $codigoCaptcha;
 
 // Criar um novo recurso de imagem a partir de um arquivo.
