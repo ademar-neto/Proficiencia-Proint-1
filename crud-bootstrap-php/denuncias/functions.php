@@ -4,14 +4,14 @@ require_once(DBAPI);
 $denuncias = null;
 $denuncia = null;
 /**
- *  Listagem de Clientes
+ *  Listagem de Denúncias
  */
 function index() {
 	global $denuncias;
 	$denuncias = find_all('denuncias');
 }
 /**
- *  Cadastro de Clientes
+ *  Cadastro de Denúncias
  */
 function add() {
   if (!empty($_POST['denuncia'])) {
