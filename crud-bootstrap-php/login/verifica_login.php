@@ -12,8 +12,7 @@ if($_SESSION['captcha'] === $_POST['captcha']){
     else {
 	$dados_usuario = $_SESSION;
     }
-// Verifica se os campos de usuário e senha existem
-// E se não estão em branco
+// Verifica se os campos de usuário e senha existem e se não estão em branco
     if(isset ($dados_usuario['usuario']) && isset ($dados_usuario['senha']) && ! empty ($dados_usuario['usuario']) && ! empty ($dados_usuario['senha'])){
 	// Faz a consulta do nome de usuário na base de dados
             $pdo_checa_user = $conexao_pdo->prepare('SELECT * FROM usuarios WHERE user = ? LIMIT 1');
@@ -40,11 +39,11 @@ if($_SESSION['captcha'] === $_POST['captcha']){
 		$_SESSION['logado']     = false;
 		
 		// Preenche o erro para o usuário
-		$_SESSION['login_erro'] = 'Usuário, senha ou captcha inválidos.';
+		$_SESSION['login_erro'] = 'ERRO.';
 	}
     }
 }
-else {
-	$_SESSION['login_erro'] = 'Usuário, senha ou captcha inválidos.';
+else{
+    $_SESSION['login_erro'] = 'Usuário, senha ou captcha inválidos.';
 }
 ?>

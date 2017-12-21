@@ -25,7 +25,7 @@ function add() {
   }
 }
 /**
- *	Atualização/Edição de Cliente
+ *	Atualização/Edição de Denúncias
  */
 function edit() {
   $now = date_create('now', new DateTimeZone('America/Maceio'));
@@ -45,7 +45,7 @@ function edit() {
   }
 }
 /**
- *  Visualização de um Cliente
+ *  Visualização de uma Denúncia
  */
 function view($id = null) {
   global $denuncia;

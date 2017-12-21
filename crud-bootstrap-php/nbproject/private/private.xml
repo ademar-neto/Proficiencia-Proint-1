@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/crud-bootstrap-php/login/config.php</file>
-            <file>file:/C:/xampp/htdocs/crud-bootstrap-php/customers/functions.php</file>
-            <file>file:/C:/xampp/htdocs/crud-bootstrap-php/denuncias/functions.php</file>
-            <file>file:/C:/xampp/htdocs/crud-bootstrap-php/inc/database.php</file>
-            <file>file:/C:/xampp/htdocs/crud-bootstrap-php/denuncias/add.php</file>
-            <file>file:/C:/xampp/htdocs/crud-bootstrap-php/login/verifica_login.php</file>
-            <file>file:/C:/xampp/htdocs/crud-bootstrap-php/clientedenuncia.php</file>
-            <file>file:/C:/xampp/htdocs/crud-bootstrap-php/denuncias/index.php</file>
+            <file>file:/opt/lampp/htdocs/crud-bootstrap-php/captcha.php</file>
+            <file>file:/opt/lampp/htdocs/crud-bootstrap-php/customers/functions.php</file>
+            <file>file:/opt/lampp/htdocs/crud-bootstrap-php/customers/add.php</file>
+            <file>file:/opt/lampp/htdocs/crud-bootstrap-php/denuncias/edit.php</file>
+            <file>file:/opt/lampp/htdocs/crud-bootstrap-php/login/verifica_login.php</file>
+            <file>file:/opt/lampp/htdocs/crud-bootstrap-php/denuncias/functions.php</file>
+            <file>file:/opt/lampp/htdocs/crud-bootstrap-php/denuncias/add.php</file>
         </group>
     </open-files>
 </project-private>

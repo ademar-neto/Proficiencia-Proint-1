@@ -30,21 +30,19 @@ Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="../login/sair.php">
       <input type="text" class="form-control" name="denuncia['denuncia']" value="<?php echo $denuncia['denuncia']; ?>">
     </div>
 
-    <div class="form-group col-md-3">
-      <label for="campo2">Código</label>
-      <input type="text" class="form-control" name="denuncia['codigo']" value="<?php echo $denuncia['codigo']; ?>">
-    </div>
-
     <div class="form-group col-md-2">
       <label for="campo3">Data de Cadastro</label>
       <input type="text" class="form-control" name="denuncia['created']" disabled value="<?php echo $denuncia['created']; ?>">
     </div>
   </div>
   
-    <div class="form-group col-md-2">
-      <label for="campo2">Descrição</label>
-      <input type="text" class="form-control" name="customer['descricao']" value="<?php echo $denuncia['descricao']; ?>">
+  <div class="row">
+    <div class="form-group col-md-3">
+      <label for="campo1">Descrição</label>
+       <textarea class="form-control" rows="5" name="denuncia['descricao']" value="<?php echo $denuncia['descricao']; ?>"></textarea>
     </div>
+  </div>
+  
 
   </div>
   <div id="actions" class="row">
