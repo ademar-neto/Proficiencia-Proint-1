@@ -32,6 +32,7 @@ Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="login/sair.php">cli
 </thead>
 <tbody>
     <?php
+    if ($result) :
     foreach($result as $res){
    ?>
         <tr>
@@ -44,7 +45,11 @@ Olá <b><?php echo $_SESSION['nome_usuario']?></b>, <a href="login/sair.php">cli
         </tr>
    <?php
     }
-   ?>
+   else : ?>
+	<tr>
+		<td colspan="6">Nenhum registro.</td>
+	</tr>
+<?php endif; ?>
 </tbody>
 </table>
 
