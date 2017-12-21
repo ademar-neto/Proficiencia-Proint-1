@@ -9,8 +9,9 @@ include('login/redirect.php');
 
 <?php require_once 'config.php'; ?>
 <?php require_once DBAPI; ?>
+
+<?php include(HEADER_TEMPLATE);
 // Inner Join das tabelas customers e denuncias.
-<?php include(HEADER_TEMPLATE);     
     $stmt = $conexao_pdo->prepare("select denuncias.id,name,cpf_cnpj,phone,denuncia,descricao from customers inner join denuncias on customers.id = usuario_id");
     $stmt->execute();
     $result = $stmt->FetchAll(PDO::FETCH_OBJ);
